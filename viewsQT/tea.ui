@@ -6,16 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>690</width>
-    <height>545</height>
+    <width>620</width>
+    <height>533</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ТЭO</string>
+   <string>ТЭO демо-данные</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_4">
-    <item row="0" column="1">
+   <layout class="QVBoxLayout" name="verticalLayout_30">
+    <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
        <number>0</number>
@@ -46,8 +46,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>336</width>
-                 <height>252</height>
+                 <width>281</width>
+                 <height>240</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout">
@@ -125,7 +125,7 @@
                   </item>
                   <item row="0" column="1">
                    <property name="text">
-                    <string>0.11</string>
+                    <string>0.12</string>
                    </property>
                   </item>
                   <item row="0" column="2">
@@ -342,7 +342,7 @@
         <item>
          <widget class="QLabel" name="label_141">
           <property name="text">
-           <string>Сумма коэффициентов весомости: 1</string>
+           <string>Сумма коэффициентов весомости: 1.0</string>
           </property>
          </widget>
         </item>
@@ -578,7 +578,7 @@
              <double>1000000000.000000000000000</double>
             </property>
             <property name="singleStep">
-             <double>1.000000000000000</double>
+             <double>0.100000000000000</double>
             </property>
             <property name="value">
              <double>0.000000000000000</double>
@@ -605,7 +605,7 @@
              <double>1000000000.000000000000000</double>
             </property>
             <property name="singleStep">
-             <double>1.000000000000000</double>
+             <double>0.100000000000000</double>
             </property>
             <property name="value">
              <double>0.000000000000000</double>
@@ -770,7 +770,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="label_125">
             <property name="text">
-             <string>Районный коэффициент</string>
+             <string>Районный коэффициент(где разрабатывают)</string>
             </property>
            </widget>
           </item>
@@ -778,6 +778,39 @@
            <widget class="QLabel" name="label_126">
             <property name="text">
              <string>Коэффициент отпускных</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_25">
+          <item row="0" column="1">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_19">
+            <property name="decimals">
+             <number>3</number>
+            </property>
+            <property name="maximum">
+             <double>100000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_132">
+            <property name="text">
+             <string>Коэффициент, учитывающий накладные расходы организации, в долях к основной заработной плате разработчиков (Wн)</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -951,39 +984,6 @@
          </widget>
         </item>
         <item>
-         <layout class="QGridLayout" name="gridLayout_25">
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_132">
-            <property name="text">
-             <string>Коэффициент, учитывающий накладные расходы организации, в долях к основной заработной плате разработчиков (Wн)</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-            <property name="wordWrap">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QDoubleSpinBox" name="doubleSpinBox_19">
-            <property name="decimals">
-             <number>3</number>
-            </property>
-            <property name="maximum">
-             <double>100000.000000000000000</double>
-            </property>
-            <property name="singleStep">
-             <double>0.100000000000000</double>
-            </property>
-            <property name="value">
-             <double>0.000000000000000</double>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_20">
           <item>
            <widget class="QLabel" name="label_3">
@@ -1024,72 +1024,6 @@
               <minute>0</minute>
               <second>0</second>
              </time>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_52">
-          <item>
-           <widget class="QLabel" name="label_59">
-            <property name="text">
-             <string>Тариф на электроэнергию, руб/ кВт ч</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QDoubleSpinBox" name="doubleSpinBox">
-            <property name="maximum">
-             <double>1000000000.000000000000000</double>
-            </property>
-            <property name="value">
-             <double>0.000000000000000</double>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_53">
-          <item>
-           <widget class="QLabel" name="label_65">
-            <property name="text">
-             <string>Норматив затрат на ремонт, %</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSpinBox" name="spinBox_2">
-            <property name="maximum">
-             <number>100</number>
-            </property>
-            <property name="value">
-             <number>0</number>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_59">
-          <item>
-           <widget class="QLabel" name="label_93">
-            <property name="text">
-             <string>Нормативный коэффициент экономической эффективности</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
-            <property name="maximum">
-             <double>1.000000000000000</double>
-            </property>
-            <property name="singleStep">
-             <double>0.100000000000000</double>
-            </property>
-            <property name="value">
-             <double>0.000000000000000</double>
             </property>
            </widget>
           </item>
@@ -1286,8 +1220,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>646</width>
-             <height>380</height>
+             <width>576</width>
+             <height>368</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_44">
@@ -1417,8 +1351,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>646</width>
-             <height>390</height>
+             <width>576</width>
+             <height>378</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -2297,7 +2231,7 @@
           <item>
            <widget class="QLabel" name="label_171">
             <property name="text">
-             <string>руб.</string>
+             <string>0 руб.</string>
             </property>
            </widget>
           </item>
@@ -2401,11 +2335,6 @@
           <column>
            <property name="text">
             <string>Частота выполнения k-ой задачи, дн./год</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Норма годовых амортизационных отчислений, %(от стоимости)</string>
            </property>
           </column>
           <column>
@@ -3073,11 +3002,6 @@
           <column>
            <property name="text">
             <string>Частота выполнения k-ой задачи, дн./год</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Норма годовых амортизационных отчислений, %(от стоимости)</string>
            </property>
           </column>
           <column>
@@ -4218,6 +4142,254 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="tab_29">
+       <attribute name="title">
+        <string>Норматив. Коэф.</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_31">
+        <item>
+         <widget class="QLabel" name="label_104">
+          <property name="text">
+           <string>Нормативные коэффициенты</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_23">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>87</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_52">
+          <item>
+           <widget class="QLabel" name="label_59">
+            <property name="text">
+             <string>Тариф на электроэнергию, руб/ кВт ч</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="doubleSpinBox">
+            <property name="maximum">
+             <double>1000000000.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_53">
+          <item>
+           <widget class="QLabel" name="label_65">
+            <property name="text">
+             <string>Норматив затрат на ремонт, в долях</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+            <property name="maximum">
+             <double>1000000000.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_55">
+          <item>
+           <widget class="QLabel" name="label_103">
+            <property name="text">
+             <string>Норма годовых амортизационных отчислений, в долях</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_15">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_221">
+            <property name="text">
+             <string>Отчисления на материалы, в долях</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_24">
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="maximum">
+             <double>10000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_27">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_219">
+            <property name="text">
+             <string>Коэффициент, учитывающий накладные расходы организации, в долях к основной заработной плате пользователей (Wн)</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_22">
+            <property name="decimals">
+             <number>3</number>
+            </property>
+            <property name="maximum">
+             <double>100000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_59">
+          <item>
+           <widget class="QLabel" name="label_93">
+            <property name="text">
+             <string>Нормативный коэффициент экономической эффективности</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+            <property name="maximum">
+             <double>1.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_12">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_220">
+            <property name="text">
+             <string>Районный коэффициент(где продукт будет использоваться)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QDoubleSpinBox" name="doubleSpinBox_23">
+            <property name="decimals">
+             <number>3</number>
+            </property>
+            <property name="maximum">
+             <double>10000.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+            <property name="value">
+             <double>0.000000000000000</double>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_21">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>87</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_63">
+          <item>
+           <spacer name="horizontalSpacer_50">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_75">
+            <property name="text">
+             <string>Назад</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_76">
+            <property name="text">
+             <string>Далее</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="tab_18">
        <attribute name="title">
         <string>Эксплуат.1</string>
@@ -5064,23 +5236,23 @@
             </property>
            </widget>
           </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_60">
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_60">
-            <item>
-             <widget class="QLabel" name="label_139">
-              <property name="text">
-               <string>Нормативный коэффициент экономической эффективности:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_140">
-              <property name="text">
-               <string>0</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
+           <widget class="QLabel" name="label_139">
+            <property name="text">
+             <string>Нормативный коэффициент экономической эффективности:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_140">
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -5331,7 +5503,6 @@
   <tabstop>doubleSpinBox_18</tabstop>
   <tabstop>pushButton_11</tabstop>
   <tabstop>pushButton_12</tabstop>
-  <tabstop>doubleSpinBox_19</tabstop>
   <tabstop>doubleSpinBox_20</tabstop>
   <tabstop>doubleSpinBox_21</tabstop>
   <tabstop>timeEdit</tabstop>

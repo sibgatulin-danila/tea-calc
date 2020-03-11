@@ -196,14 +196,6 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
             item.valueChanged.connect(self.handleChangeFourTable)
             self.tableWidget_4.setCellWidget(i, 7, item)
 
-            value = int(self.tableWidget_4.item(i, 8).text())
-            item = QtWidgets.QSpinBox()
-            item.setRange(0, 100)
-            item.setSingleStep(1)
-            item.setValue(value)
-            item.valueChanged.connect(self.handleChangeFourTable)
-            self.tableWidget_4.setCellWidget(i, 8, item)
-
         # настройка 5 таблицы
         self.pushButton_25.clicked.connect(self.addBuilding)
         for i in range(0, self.tableWidget_5.rowCount()):
@@ -350,14 +342,6 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
             item.valueChanged.connect(self.handleChangeTenTable)
             self.tableWidget_10.setCellWidget(i, 7, item)
 
-            value = int(self.tableWidget_10.item(i, 8).text())
-            item = QtWidgets.QSpinBox()
-            item.setRange(0, 100)
-            item.setSingleStep(1)
-            item.setValue(value)
-            item.valueChanged.connect(self.handleChangeTenTable)
-            self.tableWidget_10.setCellWidget(i, 8, item)
-
         # Настройка 11 таблицы
         self.pushButton_45.clicked.connect(self.addProjStuff)
         for i in range(0, self.tableWidget_11.rowCount()):
@@ -395,6 +379,9 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
             item.setValue(value)
             item.valueChanged.connect(self.handleChangeTwelveTable)
             self.tableWidget_12.setCellWidget(i, 2, item)
+
+        self.doubleSpinBox_23.valueChanged.connect(self.handleChangeRayounniyCoeff)
+
 
         # настройка 13 таблицы
         self.pushButton_51.clicked.connect(self.addAnal2)
@@ -523,6 +510,7 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
         self.pushButton_50.clicked.connect(self.nextTab)
         self.pushButton_69.clicked.connect(self.nextTab)
         self.pushButton_70.clicked.connect(self.nextTab)
+        self.pushButton_76.clicked.connect(self.nextTab)
 
         # buttons to prev tab
         self.pushButton_5.clicked.connect(self.prevTab)
@@ -552,6 +540,7 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
         self.pushButton_68.clicked.connect(self.prevTab)
         self.pushButton_71.clicked.connect(self.prevTab)
         self.pushButton_74.clicked.connect(self.prevTab)
+        self.pushButton_75.clicked.connect(self.prevTab)
 
         # button to add PK(Показатель качества)
         self.pushButton_3.clicked.connect(self.addPK)
@@ -561,6 +550,9 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
 
         # self.pushButton_73.clicked.connect(self.toMenu)
 
+    def handleChangeRayounniyCoeff(self):
+        self.handleChangeElevenTable()
+        self.handleChangeTwelveTable()
 
     def addAnal6(self):
         text, ok = QtWidgets.QInputDialog.getText(self, 'Добавить',
@@ -809,7 +801,7 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
             total = round(cost * days, 2)
             
             socialKf = self.doubleSpinBox_15.value() + self.doubleSpinBox_16.value() + self.doubleSpinBox_17.value() + self.doubleSpinBox_18.value()
-            additionalKf = self.doubleSpinBox_13.value() + self.doubleSpinBox_14.value()
+            additionalKf = self.doubleSpinBox_13.value() + self.doubleSpinBox_23.value()
 
             result = round(total * (1 + additionalKf) * (1 + socialKf), 2)
             item = QtWidgets.QTableWidgetItem()
@@ -856,7 +848,7 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
             total = round(cost * days, 2)
             
             socialKf = self.doubleSpinBox_15.value() + self.doubleSpinBox_16.value() + self.doubleSpinBox_17.value() + self.doubleSpinBox_18.value()
-            additionalKf = self.doubleSpinBox_13.value() + self.doubleSpinBox_14.value()
+            additionalKf = self.doubleSpinBox_13.value() + self.doubleSpinBox_23.value()
 
             result = round(total * (1 + additionalKf) * (1 + socialKf), 2)
             item = QtWidgets.QTableWidgetItem()
@@ -1419,7 +1411,7 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
         for i in range(self.tableWidget_10.rowCount()):
             # амортизадница
             c = self.tableWidget_10.cellWidget(i, 4).value()
-            a = round(self.tableWidget_10.cellWidget(i, 8).value() / 100, 2)
+            a = self.doubleSpinBox_4.value()
             g = self.tableWidget_10.cellWidget(i, 1).value()
             t = daysAnal * round((self.tableWidget_10.cellWidget(i, 5).time().minute() + (self.tableWidget_10.cellWidget(i, 5).time().hour() * 60)) / 60, 2)
             f = self.spinBox.value() * round((self.timeEdit_2.time().minute() + self.timeEdit_2.time().hour() * 60) / 60, 2)
@@ -1435,7 +1427,7 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
             powerAnal += n * t * g * T
             
             # затраты на ремонт
-            Cp = self.spinBox_2.value() / 100
+            Cp = self.doubleSpinBox_3.value()
             Cb = c
             t = t
             f = f
@@ -1445,7 +1437,7 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
             # затраты на материалы
             Cb = c
 
-            materAnal += Cb * 0.01
+            materAnal += Cb * self.doubleSpinBox_24.value()
 
         nakladProj = round((sumProj + powerProj + repairProj + materProj + float(self.label_39.text())) * 0.2, 2)
 
@@ -1465,7 +1457,7 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
         for i in range(self.tableWidget_4.rowCount()):
             # амортизадница
             c = self.tableWidget_4.cellWidget(i, 4).value()
-            a = round(self.tableWidget_4.cellWidget(i, 8).value() / 100, 2)
+            a = self.doubleSpinBox_4.value()
             g = self.tableWidget_4.cellWidget(i, 1).value()
             t = daysProj * round((self.tableWidget_4.cellWidget(i, 5).time().minute() + (self.tableWidget_4.cellWidget(i, 5).time().hour() * 60)) / 60, 2)
             f = self.spinBox.value() * round((self.timeEdit_2.time().minute() + self.timeEdit_2.time().hour() * 60) / 60, 2)
@@ -1481,7 +1473,7 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
             powerProj += n * t * g * T
 
             # затраты на ремонт
-            Cp = self.spinBox_2.value() / 100
+            Cp = self.doubleSpinBox_3.value()
             Cb = c
             t = t
             f = f
@@ -1491,9 +1483,9 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
             # затраты на материалы
             Cb = c
 
-            materProj += Cb * 0.01
+            materProj += Cb * self.doubleSpinBox_24.value()
 
-        nakladProj = round((sumProj + powerProj + repairProj + materProj + float(self.label_36.text())) * 0.2, 2)
+        nakladProj = round((sumProj + powerProj + repairProj + materProj + float(self.label_36.text())) * self.doubleSpinBox_22.value(), 2)
 
         self.label_83.setText(self.label_36.text())
         self.label_57.setText(str(round(sumProj, 2)))
@@ -1536,10 +1528,10 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
         eff = round(Zanal * a - Zproj, 2)
         self.label_95.setText(str(eff))
 
-        T = round(float(Kproj) / eff, 2)
+        T = round(float(Kproj) / eff, 2) if eff != 0 else 0
         self.label_120.setText(str(T))
 
-        Ef = round(1 / T, 2)
+        Ef = round(1 / T, 2) if T != 0 else 0
         self.label_122.setText(str(Ef))
 
     def get7Result(self):
@@ -1718,7 +1710,9 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
         if (sum > 1):
             self.label_141.setStyleSheet("color: rgb(255, 0, 0)")
             self.label_141.setText('Сумма коэффициентов весомости: ' + str(sum) + ' Внимание! Так как сумма больше 1, вы можете получить неправильный результат.')
-
+        elif (sum < 1):
+            self.label_141.setStyleSheet("color: rgb(255, 0, 0)")
+            self.label_141.setText('Сумма коэффициентов весомости: ' + str(sum) + ' Внимание! Так как сумма меньше 1, вы можете получить неправильный результат.')
         else: 
             self.label_141.setStyleSheet("color: rgb(0, 0, 0)")
             self.label_141.setText('Сумма коэффициентов весомости: ' + str(sum))
