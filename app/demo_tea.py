@@ -1534,6 +1534,10 @@ class DemoTeaUI(QtWidgets.QMainWindow, demo_tea):
         Ef = round(1 / T, 2) if T != 0 else 0
         self.label_122.setText(str(Ef))
 
+        ef1 = Ef
+        ef2 = round(float(self.label_140.text()), 2)
+        self.label_138.setText("Проект экономически эффективен." if (ef1 > ef2) else "Проект экономически не эффективен.")
+
     def get7Result(self):
         self.getFirstResult()
         self.getSecondResult()
